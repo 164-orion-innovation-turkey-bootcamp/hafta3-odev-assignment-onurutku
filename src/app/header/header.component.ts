@@ -20,7 +20,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
       this.id = JSON.parse(localStorage.getItem('user'));
-      console.log(this.id);
       if(this.id){
         this.sub = this.app.getLoggedUser(this.id).subscribe((userLoggedIn) => {
         this.userLoggedIn = userLoggedIn.user;

@@ -15,7 +15,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
   constructor(private app: AppService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    console.log("dashboard yüklendi");
     const id = JSON.parse(localStorage.getItem('user'));
     this.sub = this.app.getLoggedUser(id).subscribe((userLoggedIn) => {
       this.sayHi = userLoggedIn.user;
