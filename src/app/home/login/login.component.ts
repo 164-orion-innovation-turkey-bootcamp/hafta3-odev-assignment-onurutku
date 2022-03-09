@@ -65,6 +65,7 @@ export class LoginComponent implements OnInit {
             user.user.email == userLogin.email &&
             user.user.password == userLogin.password
           ) {
+            console.log(user.id)
             this.app.userLoggedIn.next(user.id);
             this.app.user = user;
             localStorage.setItem('user', JSON.stringify(user.id));

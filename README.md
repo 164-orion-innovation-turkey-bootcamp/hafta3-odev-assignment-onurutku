@@ -61,12 +61,19 @@ style='margin-right: 10px;'
 />
 ## LocalStorage
 if a user logged in. only user id stored on localstorage,with that if page refreshed user still can be logged in. Otherwise user must login again for each page refresh situation.
+
+<img
+src='src/assets/localStorage.jpg'
+raw=true
+alt='Subject Pronouns'
+style='margin-right: 10px;'
+/>
 ## Route Guard
 Here, i used canActivate route guard to manage routes.So, users cannot reach their or others dashboards if they aren't logged in.
 And also if they use write the url manually, again route guard navigate them to home page.
 
 ## Example User
-you can use for login
+
 <img
 src='src/assets/Example User.jpg'
 raw=true

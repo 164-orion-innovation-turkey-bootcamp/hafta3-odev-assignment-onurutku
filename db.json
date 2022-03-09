@@ -7,6 +7,14 @@
         "password": "Example1234"
       },
       "id": 1
+    },
+    {
+      "user": {
+        "name": "Onur",
+        "email": "topaloglu08@gmail.com",
+        "password": "Onur2235171"
+      },
+      "id": 2
     }
   ]
 }

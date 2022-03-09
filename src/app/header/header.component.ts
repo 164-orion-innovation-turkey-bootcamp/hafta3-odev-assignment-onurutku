@@ -19,22 +19,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
   constructor(private app: AppService) {}
 
   ngOnInit(): void {
-    if (localStorage.getItem('user') != null) {
       this.id = JSON.parse(localStorage.getItem('user'));
-      this.sub = this.app.getLoggedUser(this.id).subscribe((userLoggedIn) => {
+      console.log(this.id);
+      if(this.id){
+        this.sub = this.app.getLoggedUser(this.id).subscribe((userLoggedIn) => {
         this.userLoggedIn = userLoggedIn.user;
       });
-    } else {
-      this.sub2 = this.app.userLoggedIn.subscribe((userId?: number) => {
-        if(userId==null){
-          this.userLoggedIn=null;
-        }else{
-          this.app.getLoggedUser(userId).subscribe((userLogged) => {
-          this.userLoggedIn = userLogged.user;
-        });
-        }
-      });
-    }
+      }
+    this.sub2=this.app.userLoggedIn.subscribe(data=>{
+      if(data){
+        this.app.getLoggedUser(Number(data)).subscribe(user=>{
+        this.userLoggedIn = user.user;
+      })
+      }
+    })
   }
   ngOnDestroy(): void {
     this.sub.unsubscribe();
@@ -45,6 +43,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
   logout(): void {
     this.app.userLoggedIn.next(null);
+    this.userLoggedIn=undefined;
     localStorage.removeItem('user');
   }
 }
