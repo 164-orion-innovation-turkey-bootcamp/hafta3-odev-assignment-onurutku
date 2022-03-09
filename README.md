@@ -1,4 +1,5 @@
-# Application Explanation
+# Application Explanation (https://week3-out.netlify.app/home)
+# Don't forget to run "npx json-server --watch db.json"
 Application has 3 main (dashboard,header,home) and 2(login,register) child component and it has one service(app.service.ts) to handle data.
 
 <img
