@@ -1,0 +1,98 @@
+<form [formGroup]="registerForm" (submit)="onSubmit()">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      [formControlName]="'name'"
+    />
+    <p
+      *ngIf="
+        registerForm.get('name').invalid && registerForm.get('name').touched
+      "
+      class="help-block bg-danger rounded mt-1"
+    >
+      Name field cannot be empty
+    </p>
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      [formControlName]="'email'"
+    />
+    <p
+      *ngIf="
+        registerForm.get('email').invalid && registerForm.get('email').touched
+      "
+      class="help-block bg-danger rounded mt-1"
+    >
+      Invalid email address type
+    </p>
+    <p
+      *ngIf="sent != undefined && registerForm.get('email').touched"
+      class="help-block bg-danger rounded mt-1"
+    >
+      This e-mail address already exist
+    </p>
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      [formControlName]="'password'"
+    />
+    <p
+      *ngIf="
+        registerForm.get('password').invalid &&
+        registerForm.get('password').touched
+      "
+      class="help-block bg-danger rounded mt-1"
+    >
+      Password should contains at least one lowecase char, one uppercase char,
+      one number and it should be min 6 max 30 characters.
+    </p>
+  </div>
+  <div class="mb-5">
+    <label for="repassword" class="form-label">Retype Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="repassword"
+      [formControlName]="'repassword'"
+    />
+    <p
+      *ngIf="
+        this.passwordWarning != null && registerForm.get('password').touched
+      "
+      class="help-block bg-danger rounded mt-1"
+    >
+      {{ this.passwordWarning }}
+    </p>
+  </div>
+  <p
+    id="success"
+    *ngIf="this.isSubmit == true"
+    class="help-block bg-success rounded mt-1"
+  >
+    Registration successfully complete
+  </p>
+  <p
+    *ngIf="this.isSubmit == false && this.postError != null"
+    class="help-block bg-danger rounded mt-1"
+  >
+    {{ this.postError }}
+  </p>
+  <button
+    [disabled]="!registerForm.valid"
+    type="submit"
+    class="btn btn-primary btn-sm float-end"
+  >
+    Sign Up
+  </button>
+</form>

@@ -1,0 +1,47 @@
+<form *ngIf="!loading" [formGroup]="loginForm" (submit)="onSubmit()">
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      [formControlName]="'email'"
+    />
+    <p
+      *ngIf="sent == undefined && loginForm.get('email').touched"
+      class="help-block bg-danger rounded mt-1"
+    >
+      This email address does not exist on database
+    </p>
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      [formControlName]="'password'"
+    />
+    <p
+      *ngIf="
+        this.loginForm.get('password').invalid &&
+        this.loginForm.get('password').touched
+      "
+      class="help-block bg-danger rounded mt-2"
+    >
+      Invalid Password
+    </p>
+  </div>
+  <p *ngIf="this.errorMessage" class="help-block bg-danger rounded mt-1">
+    {{ this.errorMessage }}
+  </p>
+
+  <button
+    [disabled]="!loginForm.valid"
+    type="submit"
+    class="btn btn-primary btn-sm float-end"
+  >
+    Login
+  </button>
+</form>
+<app-spinner *ngIf="loading"></app-spinner>

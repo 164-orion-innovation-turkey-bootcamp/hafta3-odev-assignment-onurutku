@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Freehand&family=Press+Start+2P&display=swap");
+.start {
+  font-family: "Amatic SC", cursive;
+  font-size: 5rem;
+  animation-name: fadeIn;
+  animation-duration: 5s;
+}
+.main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mid {
+  background: linear-gradient(to bottom right, #36d1dc, #5b86e5);
+  padding: 75px;
+  border-radius: 10px;
+  position: relative;
+  animation-name: fadeIn;
+  animation-duration: 250ms;
+  max-width: 50%;
+}
+fa-icon {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: #fff;
+}
+fa-icon:hover {
+  color: #000;
+}
+fa-icon:active {
+  transform: translateY(2px);
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

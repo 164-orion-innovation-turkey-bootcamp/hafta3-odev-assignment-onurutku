@@ -1,0 +1,12 @@
+<div class="main">
+  <div *ngIf="!children" class="start">WELCOME...</div>
+  <div *ngIf="children" class="mid">
+    <fa-icon
+      *ngIf="!loading"
+      (click)="changeStatus()"
+      [routerLink]="'/home'"
+      [icon]="faWindowClose"
+    ></fa-icon>
+    <router-outlet></router-outlet>
+  </div>
+</div>
