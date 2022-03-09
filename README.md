@@ -24,7 +24,8 @@ if a user logged in. only user id stored on localstorage,with that if page refre
 Here, i used canActivate route guard to manage routes.So, users cannot reach their or others dashboards if they aren't logged in.
 And also if they use write the url manually, again route guard navigate them to home page.
 
-
+## Example User
+![](src/assets/Example User.jpg)
 
 # Hafta3Onurutku
 
