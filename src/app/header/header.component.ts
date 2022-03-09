@@ -26,9 +26,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
       });
     } else {
       this.sub2 = this.app.userLoggedIn.subscribe((userId?: number) => {
-        this.app.getLoggedUser(userId).subscribe((userLogged) => {
+        if(userId==null){
+          this.userLoggedIn=null;
+        }else{
+          this.app.getLoggedUser(userId).subscribe((userLogged) => {
           this.userLoggedIn = userLogged.user;
         });
+        }
       });
     }
   }
@@ -40,11 +44,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.app.blurStatus.next(bool);
   }
   logout(): void {
-    if (this.sub2) {
-      this.sub2.unsubscribe();
-    }
     this.app.userLoggedIn.next(null);
     localStorage.removeItem('user');
-    this.userLoggedIn = null;
   }
 }

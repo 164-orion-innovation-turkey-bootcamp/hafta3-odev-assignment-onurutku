@@ -7,7 +7,7 @@
       >{{ userLoggedIn ? userLoggedIn.name + "'s" : "" }} Dashboard</a
     >
     <div
-      *ngIf="userLoggedIn == null"
+      *ngIf="!userLoggedIn"
       class="d-flex justify-content-end align-items-center"
     >
       <ul class="navbar-nav">
@@ -33,7 +33,7 @@
       </ul>
     </div>
     <div
-      *ngIf="userLoggedIn != null"
+      *ngIf="userLoggedIn"
       class="d-flex justify-content-end align-items-center"
     >
       <ul class="navbar-nav">
