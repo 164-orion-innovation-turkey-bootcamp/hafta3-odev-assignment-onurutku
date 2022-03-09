@@ -25,7 +25,12 @@ Here, i used canActivate route guard to manage routes.So, users cannot reach the
 And also if they use write the url manually, again route guard navigate them to home page.
 
 ## Example User
-![](src/assets/Example User.jpg)
+<img
+src='src/assets/Example User.jpg'
+raw=true
+alt='Subject Pronouns'
+style='margin-right: 10px;'
+/>
 
 # Hafta3Onurutku
 
